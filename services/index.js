@@ -15,10 +15,6 @@ export const getPosts = async () => {
         title
         categories {
           name
-          slug
-        }
-        content {
-          html
         }
         excerpt
         featuredPost
