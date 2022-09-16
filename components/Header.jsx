@@ -1,6 +1,13 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getCategories } from "../services";
 
 function Header() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories().then((data) => setCategories(data.categories));
+  }, []);
   return (
     <div className="container px-10 mx-auto mb-8">
       <div className="inline-block py-8 w-full border-b border-blue-400">
@@ -9,22 +16,18 @@ function Header() {
             <span className="text-4xl font-bold text-white"> GRAPH CMS</span>
           </Link>
         </div>
-        <div className="hidden mt-1 md:float-right md:block">
-          <Link href={"/webdev"}>
-            <span className="ml-5 font-semibold text-white align-middle cursor-pointer">
-            Web Development
-            </span>
-           </Link>
-          <Link href={"/webdev"}>
-            <span className="ml-5 font-semibold text-white align-middle cursor-pointer">
-             Development
-            </span>
-           </Link>
-          <Link href={"/webdev"}>
-            <span className="ml-5 font-semibold text-white align-middle cursor-pointer">
-             Development
-            </span>
-           </Link>
+        <div className="hidden mt-1 md:float-right md:flex space-x-5">
+          {categories.map((each, index) => {
+            return (
+              <div key={index} className="">
+                <Link href={"/"}>
+                  <span className="text-lg font-semibold text-white capitalize">
+                    {each.name}
+                  </span>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

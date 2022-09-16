@@ -1,6 +1,8 @@
 import Head from "next/head";
+import CategoriesList from "../components/CategoriesList";
 import Header from "../components/Header";
 import PostCard from "../components/PostCard";
+import RecentPosts from "../components/RecentPosts";
 import { getPosts } from "../services";
 export default function Home({ posts }) {
   console.log(posts);
@@ -18,8 +20,11 @@ export default function Home({ posts }) {
             <PostCard post={each} key={index} />
           ))}
         </div>
-        <div>
-          <h1>This is side bar area</h1>
+        <div className="lg:col-span-4 col-span-1 ">
+          <div className="lg:sticky top-8">
+            <RecentPosts />
+            <CategoriesList />
+          </div>
         </div>
       </div>
     </div>

@@ -2,20 +2,26 @@ import moment from "moment";
 import Link from "next/link";
 
 function PostCard({ post }) {
-  console.log(post);
   return (
-    <div className="flex flex-col p-5 space-y-5 text-center capitalize bg-white rounded-md">
+    <div className="flex flex-col p-5 space-y-5 mb-10 text-center capitalize bg-white rounded-md">
       <div className="">
-        <img className="overflow-hidden rounded-md" src={post?.featuredImage[0]?.url} alt="featured" />
+        <img
+          className="overflow-hidden rounded-md"
+          src={post?.featuredImage[0]?.url}
+          alt="featured"
+        />
       </div>
       <h1 className="text-2xl font-semibold">{post.title}</h1>
       <div className="flex justify-center space-x-3">
-        <img className="w-[40px] rounded-full items-center border border-gray-500" src={post.author.photo.url} alt="" />
+        <img
+          className="w-[40px] rounded-full items-center border border-gray-500"
+          src={post.author.photo.url}
+          alt=""
+        />
         <p className="flex items-center">{post.author.name}</p>
       </div>
       <div className="flex justify-center space-x-3">
         <svg
-        
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -34,9 +40,11 @@ function PostCard({ post }) {
       </div>
       <p className="px-5 max-w-[500px] mx-auto">{post.excerpt}....</p>
       <div className="pt-5 pb-10">
-      <Link href={"/webdev"}>
-        <span className="px-6 py-3 text-white bg-black rounded-full transition duration-300 cursor-pointer hover:bg-gray-700">continue reading</span>
-      </Link>
+        <Link href={"/webdev"}>
+          <span className="px-6 py-3 text-white bg-black rounded-full transition duration-300 cursor-pointer hover:bg-gray-700">
+            continue reading
+          </span>
+        </Link>
       </div>
     </div>
   );
