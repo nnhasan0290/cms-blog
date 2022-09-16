@@ -61,3 +61,27 @@ export const getCategories = async () => {
   const data = await request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT, query);
   return data;
 };
+export const getCategoryPosts = async (slug) => {
+  const query = gql`
+    query MyQuery($slug: String!) {
+      posts(where: { categories_some: { slug: $slug } }) {
+        id
+        author {
+          bio
+          name
+          photo {
+            url
+          }
+        }
+        title
+        featuredImage {
+          url
+        }
+        excerpt
+        title
+      }
+    }
+  `;
+  const data = await request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT, query);
+  return data;
+};

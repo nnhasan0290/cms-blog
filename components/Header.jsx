@@ -4,6 +4,7 @@ import { getCategories } from "../services";
 
 function Header() {
   const [categories, setCategories] = useState([]);
+  console.log(categories);
 
   useEffect(() => {
     getCategories().then((data) => setCategories(data.categories));
@@ -20,7 +21,7 @@ function Header() {
           {categories.map((each, index) => {
             return (
               <div key={index} className="">
-                <Link href={"/"}>
+                <Link href={`/`}>
                   <span className="text-lg font-semibold text-white capitalize">
                     {each.name}
                   </span>

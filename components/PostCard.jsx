@@ -6,7 +6,7 @@ function PostCard({ post }) {
     <div className="flex flex-col p-5 space-y-5 mb-10 text-center capitalize bg-white rounded-md">
       <div className="">
         <img
-          className="overflow-hidden rounded-md"
+          className="overflow-hidden rounded-md w-full"
           src={post?.featuredImage[0]?.url}
           alt="featured"
         />
