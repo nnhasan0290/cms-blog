@@ -40,7 +40,7 @@ function PostCard({ post }) {
       </div>
       <p className="px-5 max-w-[500px] mx-auto">{post.excerpt}....</p>
       <div className="pt-5 pb-10">
-        <Link href={"/webdev"}>
+        <Link href={"/"}>
           <span className="px-6 py-3 text-white bg-black rounded-full transition duration-300 cursor-pointer hover:bg-gray-700">
             continue reading
           </span>
