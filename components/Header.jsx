@@ -21,7 +21,7 @@ function Header() {
           {categories.map((each, index) => {
             return (
               <div key={index} className="">
-                <Link href={`/`}>
+                <Link href="/">
                   <span className="text-lg font-semibold text-white capitalize">
                     {each.name}
                   </span>
