@@ -48,3 +48,16 @@ export const getRecentPosts = async () => {
   const data = await request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT, query);
   return data;
 };
+
+export const getCategories = async () => {
+  const query = gql`
+    query MyQuery {
+      categories {
+        name
+        slug
+      }
+    }
+  `;
+  const data = await request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT, query);
+  return data;
+};
